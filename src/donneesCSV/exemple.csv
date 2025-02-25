@@ -1,0 +1,5 @@
+Type,Base,Hauteur,Materiau
+Cube,5,null,PLA
+Pyramide,4,22,ABS
+Pyramide,14,14,ABS
+Cube,25,null,PETG

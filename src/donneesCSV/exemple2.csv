@@ -1,0 +1,16 @@
+Type,Base,Hauteur,Materiau
+Pyramide,6,9,PETG
+Pyramide,14,22,ABS
+Pyramide,9,6,NYLON
+Pyramide,17,15,ABS
+Cube,8,null,PLA
+Cube,5,null,PETG
+Cube,16,null,PLA
+Pyramide,18,18,ABS
+Pyramide,30,32,ABS
+Cube,31,null,NYLON
+Pyramide,12,14,ABS
+Cube,25,null,PETG
+Cube,22,null,PLA
+Pyramide,17,19,NYLON
+Cube,10,null,PLA
