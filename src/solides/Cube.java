@@ -6,13 +6,43 @@ package solides;
  * Le cube est défini par la longueur de son côté et le matériau utilisé.
  * La longueur du côté est validée pour être dans une plage de valeurs définie.
  */
-public class Cube{
+public class Cube extends Solide {
     /**
      * La longueur du côté du cube.
      */
+    protected static double COTE_DEFAUT = 5;
     private double cote;
 
-    // TODO: Implémenter tout le reste de la classe (constructeurs, validation, méthodes de calcul, etc.)
+    public Cube() {
+        this(COTE_DEFAUT, MATERIAU_DEFAUT);
+    }
+
+    public Cube(double cote, Materiau materiau){
+        super(materiau);
+        setCote(cote);
+    }
+
+    public double getCote(){
+        return cote;
+    }
+
+    public void setCote(double cote) {
+        if (validerDimension(cote)){
+            this.cote = cote;
+        }else{
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @Override
+    public double calculerSurface() {
+        return (Math.pow(cote, 2) * 6);
+    }
+
+    @Override
+    public double calculerVolume() {
+        return Math.pow(cote, 3);
+    }
 
     /**
      * Formate le cube en une chaîne de caractères au format STL pour l'exportation.
