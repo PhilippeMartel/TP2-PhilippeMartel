@@ -27,7 +27,7 @@ public class FileAttente {
      * Crée une nouvelle file d'attente vide.
      */
     public FileAttente() {
-        // TODO: Compléter cette méthode
+        tete = new NoeudFile(null);
     }
 
     /**
@@ -36,8 +36,7 @@ public class FileAttente {
      * @return true si la file d'attente est vide, sinon false.
      */
     public boolean estVide() {
-        // TODO: Compléter cette méthode
-        return true;
+        return tete.solide == null;
     }
 
     /**
@@ -46,7 +45,24 @@ public class FileAttente {
      * @param solide Le solide à ajouter à la file d'attente.
      */
     public void ajouterSolide(Solide solide) {
-        // TODO: Compléter cette méthode
+        NoeudFile tete;
+        NoeudFile teteP = null;
+        tete = this.tete;
+        while (tete.solide != null){
+            if(tete.solide.compareTo(solide) == -1){
+                NoeudFile file = new NoeudFile(solide);
+                file.suivant = tete;
+                if (teteP != null) {
+                    teteP.suivant = file;
+                }else{
+                    this.tete = file;
+                }
+
+            }else{
+                teteP = tete;
+                tete = tete.suivant;
+            }
+        }
     }
 
     /**
@@ -55,7 +71,8 @@ public class FileAttente {
      * @return Le solide à imprimer, ou null si la file d'attente est vide.
      */
     public Solide retirerSolide() {
-        // TODO: Compléter cette méthode
-        return null;
+        Solide solideRetire = tete.solide;
+        tete = tete.suivant;
+        return solideRetire;
     }
 }

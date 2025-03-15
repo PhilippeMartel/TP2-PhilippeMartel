@@ -12,7 +12,7 @@ import java.util.List;
 public class ListeSolides {
 
     private static final char fSep = File.separatorChar;
-    private String pathOut = System.getProperty("user.dir") + fSep + "src" + fSep + "donneesSTL" + fSep;
+    private static final String pathOut = System.getProperty("user.dir") + fSep + "src" + fSep + "donneesSTL" + fSep;
     private List<Solide> solides;
 
     public ListeSolides() {
