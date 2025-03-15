@@ -83,24 +83,20 @@ public class AppImprimante3D {
             int result = fileChooser.showOpenDialog(frame);
             if (result == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
-                try {
-                    solides.chargerDepuisCSV(file);
-                    // Ajouter chaque solide à la file d'attente et à la liste
-                    for (Solide solide : solides.getSolides()) {
-                        listModel.addElement(solide.toString());
-                    }
-                    // On trie les solides puis on remplit la file d'attente
-                    solides.trier();
-                    if (solides.getSolides().size() > 0) {
-                        for (Solide s: solides.getSolides()) {
-                            fileAttente.ajouterSolide(s);
-                        }
-                    }
-                    JOptionPane.showMessageDialog(frame, "Solides chargés et ajoutés à la file d'attente.");
-
-                } catch (IOException e) {
-                    JOptionPane.showMessageDialog(frame, "Erreur lors du chargement du fichier : " + e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+                solides.chargerDepuisCSV(file);
+                // Ajouter chaque solide à la file d'attente et à la liste
+                for (Solide solide : solides.getSolides()) {
+                    listModel.addElement(solide.toString());
                 }
+                // On trie les solides puis on remplit la file d'attente
+                solides.trier();
+                if (solides.getSolides().size() > 0) {
+                    for (Solide s : solides.getSolides()) {
+                        fileAttente.ajouterSolide(s);
+                    }
+                }
+                JOptionPane.showMessageDialog(frame, "Solides chargés et ajoutés à la file d'attente.");
+
             }
         }
     }
@@ -131,11 +127,8 @@ public class AppImprimante3D {
     }
 
     private void exporterSTL() {
-        try {
-            solides.exporterTousSTL(ListeSolides.pathOut);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
+
+        solides.exporterTousSTL(ListeSolides.getPathOut());
 
     }
 

@@ -7,38 +7,74 @@ package solides;
  * La longueur du côté est validée pour être dans une plage de valeurs définie.
  */
 public class Cube extends Solide {
+
+    /**
+     * La longueur par défaut du côté du cube.
+     */
+    protected static double COTE_DEFAUT = 5;
+
     /**
      * La longueur du côté du cube.
      */
-    protected static double COTE_DEFAUT = 5;
     private double cote;
 
+    /**
+     * Constructeur par défaut du cube, initialisant la longueur du côté
+     * avec la valeur par défaut et le matériau par défaut.
+     */
     public Cube() {
         this(COTE_DEFAUT, MATERIAU_DEFAUT);
     }
 
-    public Cube(double cote, Materiau materiau){
+    /**
+     * Constructeur du cube avec des dimensions spécifiées.
+     *
+     * @param cote la longueur du côté du cube
+     * @param materiau le matériau du cube
+     */
+    public Cube(double cote, Materiau materiau) {
         super(materiau);
         setCote(cote);
     }
 
-    public double getCote(){
+    /**
+     * Retourne la longueur du côté du cube.
+     *
+     * @return la longueur du côté
+     */
+    public double getCote() {
         return cote;
     }
 
+    /**
+     * Définit la longueur du côté du cube.
+     *
+     * @param cote la nouvelle longueur du côté
+     * @throws IllegalArgumentException si la longueur n'est pas valide
+     */
     public void setCote(double cote) {
-        if (validerDimension(cote)){
+        if (validerDimension(cote)) {
             this.cote = cote;
-        }else{
-            throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException("La longueur du côté doit être valide.");
         }
     }
 
+    /**
+     * Calcule la surface totale du cube.
+     *
+     * @return la surface totale du cube
+     */
     @Override
     public double calculerSurface() {
         return (Math.pow(cote, 2) * 6);
     }
 
+    /**
+     * Calcule le volume du cube.
+     *
+     * @return le volume du cube
+     */
     @Override
     public double calculerVolume() {
         return Math.pow(cote, 3);
