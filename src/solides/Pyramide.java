@@ -100,8 +100,8 @@ public class Pyramide extends Solide {
      *
      * @return l'aire de la face de la pyramide
      */
-    private double aireFAce() {
-        return ((hauteur * coteBase) / 2);
+    private double aireFace() {
+        return ((Math.sqrt(Math.pow(coteBase / 2, 2) + Math.pow(hauteur, 2)) * coteBase) / 2);
     }
 
     /**
@@ -120,7 +120,7 @@ public class Pyramide extends Solide {
      */
     @Override
     public double calculerSurface() {
-        return (aireBase() + (aireFAce() * 4));
+        return (aireBase() + (aireFace() * 4));
     }
 
     /**

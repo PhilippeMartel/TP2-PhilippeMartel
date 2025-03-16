@@ -1,7 +1,6 @@
 package solides;
 
 import interfaces.Imprimable;
-import jdk.jshell.UnresolvedReferenceException;
 
 /**
  * Classe abstraite représentant un solide.
